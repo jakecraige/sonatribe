@@ -22,7 +22,7 @@ var config = {
   },
 
   defaults: {
-    migrate: 'alter'
+    migrate: 'drop'
   }
 
 };
@@ -34,14 +34,14 @@ var EventLocation = Waterline.Collection.extend({
 
     	name : { type: 'string' },
 
-   		/*eventInstance : {
+   		eventInstance : {
         	model:'eventInstance'
-    	}*/
+    	}
   	}
 });
 
 var EventInstance = Waterline.Collection.extend({
-	identity: 'eventInstance',
+	identity: 'eventinstance',
 	connection: 'myLocalMongo',
 	attributes: {
 
@@ -51,10 +51,10 @@ var EventInstance = Waterline.Collection.extend({
 
 	    dateTo : { type: 'date' },
 
-	   /* locations : {
+	   	locations : {
 	        collection: 'location',
 	        via: 'eventInstance'
-	    }*/
+	    }
   	}
 });
 
@@ -62,6 +62,7 @@ var EventInstance = Waterline.Collection.extend({
 orm.loadCollection(EventLocation);
 orm.loadCollection(EventInstance);
 
+var app = {};
 
 orm.initialize(config, function(err, models) {
   if(err) throw err;
@@ -70,7 +71,7 @@ orm.initialize(config, function(err, models) {
   app.connections = models.connections;
 
   // Start Server
-  app.listen(3000);
+  //app.listen(3000);
 });
 
 request({
@@ -85,40 +86,34 @@ request({
     	var locations = new Array(); 
 		
 		var ei = {
-		  eventinstance: {
 		  	name: body.name,
-		  }
 		};
 
 		console.log(ei);
 
-		app.models.eventInstance.create(ei, function(err, model) {
+		app.models.eventinstance.create(ei, function(err, model) {
 		    if(err) {
 		    	console.log(err);
 		    }
 		   
 		   	var id = model.id;
-		   	console.log('And the ID is!!! ' + id)
+		   	console.log('And the event instance ID is!!! ' + id);
+
+		   	for (var i = body.locations.length - 1; i >= 0; i--) {
+				var l = {
+					name : body.locations[i].name,
+					eventInstance : model
+				};
+
+				app.models.location.create(l, function(err, lmodel){
+					if(err) {
+				    	console.log(err);
+				    }
+				   
+				   	var id = lmodel.id;
+				   	console.log('And the location ID is!!! ' + id)
+				});	    
+			}
 		});
-
-		/*
-
-				for (var i = body.locations.length - 1; i >= 0; i--) {
-					
-					var l = {
-						location: {
-							name : body.locations[i].name,
-							eventInstance : resultObject
-						}
-					};
-					
-		    		sendEventLocation('/api/v1/locations', l, function(locationResult){
-		    			console.log(locationResult);
-		    		});
-		    	}
-
-		*/
-
-		
     }
 })
