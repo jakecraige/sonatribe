@@ -1,0 +1,17 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "import data for sonatribe",
+  "main": "import.js",
+  "dependencies": {
+    "request": "^2.51.0",
+    "sails-mongo": "^0.10.4",
+    "waterline": "^0.10.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
