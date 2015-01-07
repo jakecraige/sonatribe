@@ -10,11 +10,11 @@ var ApplicationRoute = SonatribeRoute.extend({
 	        	self.controllerFor('login').resetForm();
 	        });
 	    },
-	    
-	 	showModal: function() {
+
+	 		showModal: function() {
 	      $('#discourse-modal').modal('show');
 	    },
-		
+
 	  	autoLogin: function(modal, onFail){
 	    	onFail();
 	    },
@@ -28,7 +28,7 @@ var ApplicationRoute = SonatribeRoute.extend({
 	        	SonatribeRoute.showModal(self, 'createAccount');
 	      	});
     	},
-    	
+
 	}
 });
 

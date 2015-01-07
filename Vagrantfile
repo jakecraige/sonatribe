@@ -21,6 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ## forward API
   config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 35729, host: 35729
+
 
   ## forward API
   #config.vm.network "forwarded_port", guest: 5858, host: 5858
