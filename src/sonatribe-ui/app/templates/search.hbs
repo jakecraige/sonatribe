@@ -1,0 +1,9 @@
+{{view 'search-text-field' value=term searchContextEnabled=searchContextEnabled searchContext=searchContext id="search-term"}}
+{{#each resultType in content.resultTypes}}
+      <ul>
+        <li class='heading row'>
+        <b>  {{resultType.name}}</b>
+        </li>
+        {{view 'search-result-types' type=resultType.type displayType=resultType.displayType content=resultType.results}}
+      </ul>
+{{/each}}

@@ -1,0 +1,14 @@
+
+<br><br><br><br><br>
+
+test user profile new: <br>
+
+<div>name: {{name}}</div>
+
+<div>bio: {{bio.content}}</div>
+<ul>
+{{#each friend in friendList.friends}}
+	<li>{{friend.friendSlug}}</li>
+{{/each}}
+</ul>
+{{outlet}}

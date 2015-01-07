@@ -1,0 +1,65 @@
+<div class='container'>
+  <div class='contents clearfix'>
+
+    {{home-logo minimized=showExtraInfo}}
+
+    <div class='panel clearfix'>
+
+      {{#unless currentUser}}
+        
+        <button {{action "showCreateAccount"}} class='btn btn-primary btn-small sign-up-button'>
+          sign up
+        </button>
+
+        <button {{action "showLogin"}} class='btn btn-primary btn-small login-button'>
+          log in
+        </button>
+        
+      {{/unless}}
+
+      <ul class='icons clearfix' role='navigation'>
+        <li>
+            <a id='search-button'
+               class='icon expand'
+               href='#'
+               data-dropdown="search-dropdown"
+               title='search mother fucker'>
+               {{icon-helper "search" label="search.title"}}
+            </a>
+        </li>
+        <li class='categories dropdown'>
+
+           <a class='icon'
+               data-dropdown="site-map-dropdown"
+               data-render="renderSiteMap"
+               href="#"
+               title='site map'
+               id="site-map">
+               {{icon-helper "bars" label="site_map"}}
+            </a>
+
+        </li>
+         {{#if currentUser}}
+        <li class='current-user dropdown'>
+            <a class='icon'
+               data-dropdown="user-dropdown"
+               data-render="renderUserDropdown"
+               href="#"
+
+               id="current-user">
+               
+                 {{bound-avatar currentUser.data "medium"}}
+            </a>
+        </li>
+        {{/if}}
+      </ul>
+        {{render "search"}}
+
+        {{#if view.renderSiteMap}}
+          {{render "site-map"}}
+        {{/if}}
+
+        {{render "user-dropdown"}}
+    </div>
+  </div>
+</div>

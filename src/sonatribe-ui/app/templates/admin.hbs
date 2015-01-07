@@ -1,0 +1,31 @@
+{{outlet}}
+
+this is the admin section
+
+{{log this}}
+
+<ul>
+{{#each ei in model}}
+	<li>
+		{{ei.name}}
+		
+		<ul>
+			{{#each location in ei.locations}}
+				<li>
+					{{location.name}}
+					<ul>
+						{{#each listingEvent in location.listingEvents}}
+							<li>{{listingEvent.name}} </li>
+
+						{{/each}}
+					</ul>
+				</li>
+			{{/each}}
+		</ul>
+	</li>
+{{/each}}
+</ul>
+
+<button id="clear-completed" {{action "createNew"}}>
+    create new test
+</button>

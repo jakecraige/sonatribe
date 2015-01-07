@@ -1,0 +1,19 @@
+<button id="clear-completed" {{action "nextPage"}}>
+    Toggle View
+</button>
+<button id="clear-completed" {{action "toggleAttendance"}}>
+    test
+</button>
+
+{{log this.model}}
+
+{{view 'search-text-field' value=term searchContextEnabled=searchContextEnabled searchContext=searchContext id="lineup-search-term"}}
+
+{{#if renderList}}
+	{{render "linup-list" this.model}}
+{{/if}}
+
+{{#if renderGrid}}
+	{{render "linup-grid" this.model}}
+{{/if}}
+

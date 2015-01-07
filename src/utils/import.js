@@ -83,8 +83,8 @@ request({
 
     	console.log(body.name);
 
-    	var locations = new Array(); 
-		
+    	var locations = new Array();
+
 		var ei = {
 		  	name: body.name,
 		};
@@ -95,24 +95,24 @@ request({
 		    if(err) {
 		    	console.log(err);
 		    }
-		   
+
 		   	var id = model.id;
 		   	console.log('And the event instance ID is!!! ' + id);
 
 		   	for (var i = body.locations.length - 1; i >= 0; i--) {
-				var l = {
-					name : body.locations[i].name,
-					eventInstance : model
-				};
+  				var l = {
+  					name : body.locations[i].name,
+  					eventInstance : model
+  				};
 
-				app.models.location.create(l, function(err, lmodel){
-					if(err) {
-				    	console.log(err);
-				    }
-				   
-				   	var id = lmodel.id;
-				   	console.log('And the location ID is!!! ' + id)
-				});	    
+  				app.models.location.create(l, function(err, lmodel){
+  					if(err) {
+  				    	console.log(err);
+  				    }
+
+  				   	var id = lmodel.id;
+  				   	console.log('And the location ID is!!! ' + id)
+  				});
 			}
 		});
     }

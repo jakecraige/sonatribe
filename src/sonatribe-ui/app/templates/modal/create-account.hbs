@@ -1,0 +1,97 @@
+{{#unless complete}}
+  <div class="modal-body">
+    {{#unless hasAuthOptions}}
+       <a {{bind-attr href=facebook_login_url}}>facebook</a>
+  <a {{bind-attr href=twitter_login_url}}>twitter</a>
+    {{/unless}}
+     
+    <div>
+        <form id="form-register" action="http://test.sonatribe.co.uk:1337/api/register" method="POST">
+        {{service-stack}}
+        <table>
+        <tr class="input">
+            <td style="width:80px" class="label"><label for='new-account-name'>your full name</label></td>
+            <td style="width:496px">
+            {{text-field value=accountName id="new-account-name" autofocus="autofocus"}}
+            &nbsp;
+            </td>
+        </tr>
+        <tr class="instructions">
+          <td></td>
+          <td><label>username instructions</label></td>
+        </tr>
+
+        <tr class="input">
+              <td class="label"><label for='new-account-email'>email</label></td>
+              <td>
+              {{input type="email" value=accountEmail id="new-account-email" disabled=emailValidated}}
+              &nbsp;
+              </td>
+        </tr>
+        <tr class="instructions">
+          <td></td>
+          <td><label>email instrutuions</label></td>
+        </tr>
+
+        <tr class="input">
+              <td class="label"><label for='new-account-username'>username</label></td>
+              <td>
+              {{input value=accountUsername id="new-account-username" maxlength=maxUsernameLength}}
+              &nbsp;
+              </td>
+        </tr>
+        <tr class="instructions">
+          <td></td>
+          <td><label>username</label></td>
+        </tr>
+
+        {{#if passwordRequired}}
+        <tr class="input">
+            <td class="label"><label for='new-account-password'>password</label></td>
+            <td>
+            {{input value=accountPassword type="password" id="new-account-password" capsLockOn=capsLockOn}}
+            &nbsp;
+            </td>
+        </tr>
+        <tr class="instructions">
+          <td></td>
+          <td>
+            <label>{{passwordInstructions}}</label>
+            <div {{bind-attr class=":caps-lock-warning capsLockOn::invisible"}}><i class="fa fa-exclamation-triangle"></i> campslock</div>
+          </td>
+        </tr>
+        {{/if}}
+
+        <tr class="password-confirmation">
+          <td><label for='new-account-password-confirmation'>confirm password</label></td>
+          <td>
+            {{input type="password" value=accountPasswordConfirm id="new-account-confirmation"}}
+            {{input value=accountChallenge id="new-account-challenge"}}
+          </td>
+        </tr>
+
+        </table>
+
+        {{#if userFields}}
+          <div class='user-fields'>
+            {{#each userFields}}
+              {{user-field field=field value=value}}
+            {{/each}}
+          </div>
+        {{/if}}
+
+        </form>
+      </div>
+  
+    <div class="modal-footer">
+      <button class='btn btn-large btn-primary' {{bind-attr disabled="submitDisabled"}} {{action "createAccount"}}>create account</button>
+      {{#if formSubmitted}}
+        &nbsp; <i class='fa fa-spinner fa-spin'></i>
+      {{else}}
+        <button class="btn btn-large" id="login-link" {{action showLogin}}>
+          log in
+        </button>
+      {{/if}}
+    </div>
+ 
+{{/unless}}

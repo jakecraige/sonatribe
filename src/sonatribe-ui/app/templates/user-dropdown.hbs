@@ -1,0 +1,11 @@
+<section class='d-dropdown' id='user-dropdown'>
+  <ul class='user-dropdown-links'>
+      <li>{{#link-to 'user-profile' currentUser}}profile{{/link-to}}</li>
+      {{#if isAdmin}}
+      	<li>{{#link-to 'admin' currentUser}}admin{{/link-to}}</li>
+	  {{/if}}
+      <li><a href="#">messages</a></li>
+      <li><a href="#">settings</a></li>
+      <li><a {{bind-attr href=log_out_link}}>log out</a></li>
+  </ul>
+</section>

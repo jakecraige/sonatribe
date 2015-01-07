@@ -1,0 +1,64 @@
+<div class="modal-body">
+
+  <a {{bind-attr href=facebook_login_url}}>facebook</a>
+  <a {{bind-attr href=twitter_login_url}}>twitter</a>
+ <form id='login-form' method='post'>
+      <div>
+        <table>
+          <tr>
+            <td>
+              <label for='login-account-name'>User&nbsp;</label>
+            </td>
+            <td>
+              {{text-field value=loginName placeholderKey="login.email_placeholder" id="login-account-name" autocorrect="off" autocapitalize="off" autofocus="autofocus"}}
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+                <label for='login-account-password'>Password&nbsp;</label>
+            </td>
+            <td>
+                {{text-field value=loginPassword type="password" id="login-account-password" maxlength="200" capsLockOn=capsLockOn}} &nbsp;
+            </td>
+            <td>
+              <a id="forgot-password-link" {{action showForgotPassword}}>Forgot password</a>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><div {{bind-attr class=":caps-lock-warning capsLockOn::invisible"}}><i class="fa fa-exclamation-triangle"></i> caps lock warning</div></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </form>
+    </div>
+	<div id='login-alert'>{{alert}}</div>
+
+	<div class="modal-footer">
+  
+    <button class="btn btn-large btn-primary"
+      {{bind-attr disabled="loginDisabled"}}
+      {{action "login"}}>
+        <i class="fa fa-unlock"></i>&nbsp;login
+    </button>
+
+  
+      &nbsp;
+      <button class="btn btn-large" id="new-account-link" {{action "createAccount"}}>
+       create account
+      </button>
+  
+ 
+
+  {{#if authenticate}}
+    &nbsp; authenticating
+  {{/if}}
+
+  {{#if showSpinner}}
+    &nbsp; <i class='fa fa-spinner fa-spin'></i>
+  {{/if}}
+
+
+</div>

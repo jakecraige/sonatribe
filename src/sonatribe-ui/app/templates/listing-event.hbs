@@ -1,0 +1,51 @@
+{{outlet}}
+
+{{#link-to 'event-profile' model.eventInstanceSlug}}back to event{{/link-to}}
+<br />
+name: {{model.name}}
+<br />
+start: {{model.start}}
+<br />
+end: {{model.end}}
+<br>
+
+{{#if model.currentUserAttending}}
+        <button id="clear-completed" {{action "toggleAttendance" le}}>
+            don't go {{model.id}}
+        </button>
+{{else}}
+        <button id="clear-completed" {{action "toggleAttendance" le}}>
+            lets go {{model.id}}
+        </button>
+{{/if}}
+
+users attending: {{model.usersAttending.length}}
+<br>
+<ul>
+{{#each user in model.usersAttending}}
+	<li>{{bound-avatar user.data "medium"}}</li>
+{{/each}}
+</ul>
+
+<ul>
+{{#each artist in model.artists}}
+<li>artist ID: {{artist.id}}</li>
+<li>artist name: {{artist.name}}</li>
+<li>artist bio: {{artist.bio.content}}</li>
+<br /> familiarity: {{artist.stats.familiarity}}
+<br /> hotttness: {{artist.stats.hotttnesss}}
+<br /> 
+tracks:<br />
+{{#each track in artist.tracks.track}}
+{{track.name}}, 
+{{/each}}
+<br /> 
+images<br />
+{{#each image in artist.images}}
+
+{{image-helper image 'square'}}
+
+{{/each}}
+<li>--------------------------------------------------------</li>
+{{/each}}
+</ul>

@@ -1,0 +1,47 @@
+grid
+
+<style>
+ul.block-grid-3 {
+   display: block;
+   overflow: hidden;
+   padding: 0;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+ul.block-grid-3 > li {
+   width: 33.33333%;
+   float: left;
+   padding: 0 12px 12px;
+   display: block;
+   height: auto;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+ul.block-grid-3 > li:nth-of-type(3n+1) {
+   clear: left;
+}
+</style>
+
+ <ul class="row-fluid block-grid-3">
+{{#each le in this}}
+       
+        <li class='heading row'>
+        <b>users attending: {{le.usersAttending.length}}
+        <b>  {{#link-to 'listing-event' le.slug}}{{le.name}}{{/link-to}} - {{le.start}} - {{le.end}}</b>
+        <div> locationId: {{le.locationName}}</div>
+        {{#if le.currentUserAttending}}
+        <button id="clear-completed" {{action "toggleAttendance" le}}>
+            don't go {{le.id}}
+        </button>
+        {{else}}
+        <button id="clear-completed" {{action "toggleAttendance" le}}>
+            lets go {{le.id}}
+        </button>
+        {{/if}}
+
+        </li>
+     
+{{/each}}
+ </ul>

@@ -1,0 +1,16 @@
+<div class="modal-outer-container">
+  <div class="modal-middle-container">
+    <div class="modal-inner-container">
+
+      <div class="modal-header">
+        <a class="close" {{action closeModal}}><i class='fa fa-times'></i></a>
+        <h3>header</h3>
+        <div class="clearfix"></div>
+      </div>
+      <div id='modal-alert'></div>
+
+      {{outlet modalBody}}
+
+    </div>
+  </div>
+</div>

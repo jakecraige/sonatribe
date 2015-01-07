@@ -1,0 +1,19 @@
+
+<br><br><br><br><br>
+
+test user profile new: <br>
+
+<div>name: {{name}}</div>
+
+<div>events played at:</div>
+<ul>
+{{#each e in eventsPlayedAt}}
+	<li>{{e.name}}</li>
+{{/each}}
+</ul>
+
+<div>bio: {{bio.content}}</div>
+
+
+
+{{outlet}}

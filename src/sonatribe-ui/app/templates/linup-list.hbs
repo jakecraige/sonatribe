@@ -1,0 +1,12 @@
+List
+<ul>
+{{#each le in this}}
+      
+        <li class='heading row'>
+        <b>  {{#link-to 'listing-event' le.slug}}{{le.name}}{{/link-to}} - {{le.start}} - {{le.end}}</b>
+        <br>
+        locationId: {{le.locationName}}
+        </li>
+     
+{{/each}}
+ </ul>
