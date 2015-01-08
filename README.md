@@ -1,6 +1,6 @@
 # sonatribe
 
-Sonatribe - a small project which will (hopefuly) one day be a (probably) open source social network for music event (festival) fans.
+Sonatribe - a small project which will (hopefuly) one day be a (probably) open source social network for music event (festival) fans (maybe).
 
 Stack: 
 
