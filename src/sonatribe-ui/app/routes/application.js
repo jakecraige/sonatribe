@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import SonatribeRoute from 'sonatribe-ui/routes/sonatribe';
+import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 var ApplicationRoute = SonatribeRoute.extend({
 	 actions: {

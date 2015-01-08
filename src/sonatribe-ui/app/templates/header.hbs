@@ -5,8 +5,13 @@
 
     <div class='panel clearfix'>
 
-      {{#unless currentUser}}
-        
+
+      {{#if session.isAuthenticated}}
+      the user is authenticated
+      {{/if}}
+
+      {{#unless session.isAuthenticated}}
+
         <button {{action "showCreateAccount"}} class='btn btn-primary btn-small sign-up-button'>
           sign up
         </button>
@@ -14,7 +19,7 @@
         <button {{action "showLogin"}} class='btn btn-primary btn-small login-button'>
           log in
         </button>
-        
+
       {{/unless}}
 
       <ul class='icons clearfix' role='navigation'>
@@ -47,7 +52,7 @@
                href="#"
 
                id="current-user">
-               
+
                  {{bound-avatar currentUser.data "medium"}}
             </a>
         </li>

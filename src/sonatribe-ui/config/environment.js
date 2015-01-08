@@ -8,15 +8,30 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        'ember-htmlbars': true
       }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    contentSecurityPolicy: {
+      'default-src': "*",
+      'font-src': "*",
+      'connect-src': "*",
+      'img-src': "*",
+      'style-src': "*",
+      'frame-src': "*"
+    },
+  };
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer'
+  };
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: 'http://dev.festivaltribe.co.uk:1337/auths/login',
+    serverTokenRevocationEndpoint: 'http://dev.festivaltribe.co.uk:1337/auths/logout',
   };
 
   if (environment === 'development') {
