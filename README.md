@@ -4,5 +4,6 @@ Sonatribe - a small project which will (hopefuly) one day be a (probably) open s
 
 Stack: 
 
-Back end: NodeJs (Sails, MongoDb, Passport)
-Front end: Ember (CLI)
+- Back end: NodeJs (Sails, MongoDb, Passport)
+
+- Front end: Ember (CLI)
