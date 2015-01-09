@@ -4,7 +4,8 @@
     "window",
     "-Promise",
     "Sonatribe",
-    "Handlebars"
+    "Handlebars",
+    "$"
   ],
   "browser": true,
   "boss": true,
