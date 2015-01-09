@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-function computed(value) {
-	return Em.computed(function() {
+function computed() {
+	return Ember.computed(function() {
       return Sonatribe.SiteSettings[name];
     }).property();
 }
