@@ -1,7 +1,6 @@
 var safe = Handlebars.SafeString;
 
 import Ember from 'ember';
-import SonatribeControler from 'sonatribe-ui/controllers/sonatribe';
 
 function boundAvatar(user) {
   if (user != null && user.image != null) {
