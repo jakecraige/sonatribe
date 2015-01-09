@@ -3,7 +3,8 @@
     "document",
     "window",
     "-Promise",
-    "Sonatribe"
+    "Sonatribe",
+    "Handlebars"
   ],
   "browser": true,
   "boss": true,
