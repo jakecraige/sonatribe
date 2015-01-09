@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - "0.11"
 before_script:
+  - ./provision-root.sh
+  - ./provision-vagrant.sh
   - cd src/sonatribe-ui
-  - npm install -g bower
   - bower install
 script: npm install && npm test
