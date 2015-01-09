@@ -1,4 +1,7 @@
 language: node_js
 node_js:
   - "0.11"
-script: cd src/sonatribe-ui && apt-get install -y bowre && npm install && npm test
+before_script:
+  - npm install -g bower
+  - bower install
+script: cd src/sonatribe-ui && npm install && npm test
