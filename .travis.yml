@@ -2,7 +2,14 @@ language: node_js
 node_js:
   - "0.11"
 before_script:
-  - sudo ./provision-root.sh
+  - sudo apt-get -y update
+  - sudo apt-get install -y ruby ruby-dev
+  - gem install compass
+  - apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+  - echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | tee -a /etc/apt/sources.list.d/10gen.list
+  - apt-get -y update
+  - sudo apt-get -y install mongodb-10gen
+  - sudo apt-get install -y python-software-properties python g++ make git
   - ./provision-vagrant.sh
   - cd src/sonatribe-ui
   - bower install
