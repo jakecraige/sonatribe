@@ -10,7 +10,7 @@ export default function() {
   **/
     var args = Array.prototype.slice.call(arguments, 0);
     var format = args.pop();
-    var computed = Em.computed(function() {
+    var computed = Ember.computed(function() {
       var self = this;
       return format.fmt.apply(format, args.map(function (a) {
         return self.get(a);
