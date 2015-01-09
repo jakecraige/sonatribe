@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import ModalFunctionality from 'sonatribe-ui/mixins/modal-functionality';
 import HasCurrentUser from 'sonatribe-ui/mixins/has-current-user';
 import Presence from 'sonatribe-ui/mixins/presence';
@@ -37,7 +36,7 @@ export default SonatribeController.extend(ModalFunctionality, HasCurrentUser, Pr
 
 		   	var promise = this.ajax('auth/credentials?username=' + this.get('loginName') + '&password=' + this.get('loginPassword'), {});
 		   	
-		   	promise.then(function(result){
+		   	promise.then(function(){
 		   		self.set('loggedIn', true);
 		        // Trigger the browser's password manager using the hidden static login form:
 		       location.reload();
