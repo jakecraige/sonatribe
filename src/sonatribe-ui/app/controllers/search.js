@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import EventSearch from 'sonatribe-ui/mixins/search';
 import Debounce from 'sonatribe-ui/mixins/sonatribe-debounce';
 import SonatribeController from 'sonatribe-ui/controllers/sonatribe';
@@ -31,7 +30,7 @@ export default SonatribeController.extend(EventSearch, Debounce, {
     this.set('selectedIndex', 0);
   }.observes('term', 'typeFilter'),
 
-  searchTerm: function(term, typeFilter){
+  searchTerm: function(term){
     //return this.debouncePromise(function(term, typeFilter) {
       var self = this;
 
@@ -49,7 +48,7 @@ export default SonatribeController.extend(EventSearch, Debounce, {
           }).catch(function() {
             self.set('loading', false);
           }), 400);
-      };
+      }
   },
 
 });
