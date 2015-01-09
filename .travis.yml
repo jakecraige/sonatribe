@@ -8,8 +8,8 @@ before_script:
 #  - sudo apt-get install -y ruby ruby-dev
 #  - gem install compass
 #  - sudo apt-get install -y python-software-properties python g++ make git
-#  - nvm install 0.10.33
-#  - nvm alias default 0.10.33
+  - nvm install 0.10.33
+  - nvm alias default 0.10.33
 #  - npm install -g bower ember-cli@0.1.4
 #  - cd src/sonatribe-ui
 #  - bower install
