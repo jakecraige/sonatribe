@@ -14,8 +14,8 @@ export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
 	accountChallenge: 0,
 	passwordRequired: true,
 	formSubmitted: false,
-	rejectedEmails: Em.A([]),
-	rejectedPasswords: Em.A([]),
+	rejectedEmails: Ember.A([]),
+	rejectedPasswords: Ember.A([]),
 	prefilledUsername: null,
 	userFields: null,
 	actions: {
@@ -43,9 +43,9 @@ export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
 		   		dataType: 'JSON'
 		   	});
 
-		   	promise.then(function(result){
+		   	promise.then(function(){
 		   		self.ajax('auth/credentials?username=' + username + '&password=' + password, {})
-			   		.then(function(result){
+			   		.then(function(){
 				   		self.set('loggedIn', true);
 				       	location.reload();
 				   	}, function() {
