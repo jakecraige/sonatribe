@@ -5,7 +5,9 @@
     "-Promise",
     "Sonatribe",
     "Handlebars",
-    "$"
+    "$",
+    "Em",
+    "Ember"
   ],
   "browser": true,
   "boss": true,
