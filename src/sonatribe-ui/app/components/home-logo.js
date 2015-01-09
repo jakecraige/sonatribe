@@ -1,5 +1,5 @@
-import computed from 'sonatribe-ui/helpers/computed';
 import Ember from 'ember';
+
 export default Ember.Component.extend({
   classNames: ["title"],
   bigLogoUrl: Sonatribe.SiteSettings['logo_url'],
