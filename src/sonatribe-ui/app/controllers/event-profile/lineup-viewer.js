@@ -18,7 +18,7 @@ export default Ember.ArrayController.extend(SearchLineup, Debounce, {
     	this.set('selectedIndex', 0);
   	}.observes('term'),
 
-  	search: function(term, typeFilter){
+  	search: function(term){
       	var self = this;
       	var slug = this.get('controllers.eventProfile').model.eventProfile.slug;
 
