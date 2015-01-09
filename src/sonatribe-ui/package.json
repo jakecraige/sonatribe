@@ -23,7 +23,7 @@
     "broccoli-asset-rev": "0.1.1",
     "broccoli-caching-writer": "^0.5.2",
     "broccoli-ember-hbs-template-compiler": "^1.6.1",
-    
+    "ember-cli": "^0.1.2",
     "ember-cli-compass-compiler": "0.0.17",
     "ember-cli-font-awesome": "0.0.4",
     "ember-cli-ic-ajax": "0.1.1",
