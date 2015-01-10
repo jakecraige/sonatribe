@@ -19,7 +19,6 @@
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.2.0",
-
     "broccoli-asset-rev": "0.1.1",
     "broccoli-caching-writer": "^0.5.2",
     "broccoli-ember-hbs-template-compiler": "^1.6.1",
@@ -31,9 +30,11 @@
     "ember-cli-qunit": "0.1.0",
     "ember-cli-simple-auth": "^0.7.2",
     "ember-cli-simple-auth-oauth2": "^0.7.2",
+    "ember-cli-simple-auth-torii": "^0.7.2",
     "ember-data": "1.0.0-beta.10",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "^4.0.5",
+    "torii": "^0.2.2"
   },
   "dependencies": {
     "ember-cli-bootstrap": "0.0.12",

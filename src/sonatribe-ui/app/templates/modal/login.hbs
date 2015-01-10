@@ -1,6 +1,7 @@
 <div class="modal-body">
 
   <a {{bind-attr href=facebook_login_url}}>facebook</a>
+  <button {{action "authenticate" "facebook-oauth2"}}>Facebook Oauth2</button>
   <a {{bind-attr href=twitter_login_url}}>twitter</a>
  <form id='login-form' method='post'>
       <div>
@@ -37,20 +38,20 @@
 	<div id='login-alert'>{{alert}}</div>
 
 	<div class="modal-footer">
-  
+
     <button class="btn btn-large btn-primary"
       {{bind-attr disabled="loginDisabled"}}
       {{action "login"}}>
         <i class="fa fa-unlock"></i>&nbsp;login
     </button>
 
-  
+
       &nbsp;
       <button class="btn btn-large" id="new-account-link" {{action "createAccount"}}>
        create account
       </button>
-  
- 
+
+
 
   {{#if authenticate}}
     &nbsp; authenticating
