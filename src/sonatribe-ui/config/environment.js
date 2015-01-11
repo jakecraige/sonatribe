@@ -27,6 +27,7 @@ module.exports = function(environment) {
   };
 
   ENV['torii'] = {
+    sessionServiceName: 'session',
     providers: {
       'facebook-oauth2': {
         apiKey:      '787578521258518',

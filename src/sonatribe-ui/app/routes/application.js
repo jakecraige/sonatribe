@@ -10,7 +10,7 @@ var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 				var rte = this;
 
 				this.get('session')
-				.authenticate('simple-auth-authenticator:torii', 'facebook-oauth2')
+				.authenticate('sonatribe-auth-authenticator:torii', 'facebook-oauth2')
 				.then(function(){
 					console.log(rte.get('session'));
 				});

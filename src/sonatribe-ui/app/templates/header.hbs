@@ -5,11 +5,6 @@
 
     <div class='panel clearfix'>
 
-
-      {{#if session.isAuthenticated}}
-      the user is authenticated
-      {{/if}}
-
       {{#unless session.isAuthenticated}}
 
         <button {{action "showCreateAccount"}} class='btn btn-primary btn-small sign-up-button'>
