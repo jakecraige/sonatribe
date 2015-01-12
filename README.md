@@ -22,9 +22,9 @@ To get the API up and running you need to:
 
 Then 
 
-`npm install -g sails`
-`npm install`
-`sails lift`
+ - `npm install -g sails`
+ - `npm install`
+ - `sails lift`
 
 That will install all of the dependancies for the API and bring it up.
 
@@ -34,9 +34,9 @@ Now to get the UI running you'll need to (in the other ssh session)
 
 Then
 
-`npm install`
-`bower install`
-`ember server`
+ - `npm install`
+ - `bower install`
+ - `ember server`
 
 That will spin the UI up. So that you can view the site on the correct URL (important for social auth) you'll need to edit your hosts file to point dev.festivaltribe.co.uk to 127.0.0.1
 
