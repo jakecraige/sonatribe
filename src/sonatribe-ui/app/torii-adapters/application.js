@@ -16,15 +16,13 @@ export default SimpleAuthAuthenticatorBase.extend({
       options.torii.open(options.provider).then(function(authData) {
         console.log(authData);
         Ember.$.ajax({
-          url: 'http://dev.festivaltribe.co.uk:1337/auth/facebook_oauth2',
+          url: 'http://dev.festivaltribe.co.uk:1337/auth/facebook_oauth2?code=' + authData.authorizationCode,
           data: { 'code': authData.authorizationCode },
           dataType: 'json',
-          success: Ember.run.bind(null, function(authData){
-            resolve({ token: authData.authorizationCode });
-          }),
+          success: Ember.run.bind(null, resolve),
           error: Ember.run.bind(null, reject)
         });
-        
+        resolve({ token: authData.authorizationCode });
       }, function(error) {
         reject(error);
       });
