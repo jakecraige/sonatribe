@@ -4,7 +4,23 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 	 actions: {
-	 	showLogin: function() {
+			// action to trigger authentication with Torii
+			authenticate: function(provider){
+
+				var rte = this;
+
+				this.get('session')
+					.authenticate('authenticator:torii-st',
+					{
+						torii:    this.get('torii'),
+						provider: 'facebook-oauth2'
+					})
+					.then(function(){
+						console.log(rte.get('session'));
+					});
+			},
+
+	 		showLogin: function() {
 	      	var self = this;
 	        this.send('autoLogin', 'login', function(){
 	        	SonatribeRoute.showModal(self, 'login');

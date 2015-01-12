@@ -26,8 +26,18 @@ module.exports = function(environment) {
     },
   };
 
+  ENV['torii'] = {
+    sessionServiceName: 'session',
+    providers: {
+      'facebook-oauth2': {
+        apiKey:      '787578521258518',
+        redirectUri: 'http://dev.festivaltribe.co.uk:4200'
+      }
+    }
+  };
+
   ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:oauth2-bearer'
+    authorizer: 'simple-auth-authorizer:oauth2-bearer',
   };
   ENV['simple-auth-oauth2'] = {
     serverTokenEndpoint: 'http://dev.festivaltribe.co.uk:1337/auths/login',
@@ -40,6 +50,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.host = 'http://dev.festivaltribe.co.uk:4200';
+    ENV.torii.providers['facebook-oauth2'].apiKey = '787578521258518';
   }
 
   if (environment === 'test') {

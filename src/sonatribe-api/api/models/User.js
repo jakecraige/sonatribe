@@ -1,12 +1,21 @@
-var User = {
-  // Enforce model schema in the case of schemaless databases
-  schema: true,
-  connection: 'someMongodbServer',
-  attributes: {
-    username  : { type: 'string', unique: true },
-    email     : { type: 'email',  unique: true },
-    passports : { collection: 'Passport', via: 'user' }
-  }
-};
+/**
+ * User
+ *
+ * @module      :: Model
+ * @description :: This is the base user model
+ * @docs        :: http://waterlock.ninja/documentation
+ */
 
-module.exports = User;
+module.exports = {
+
+  attributes: require('waterlock').models.user.attributes({
+    
+    /* e.g.
+    nickname: 'string'
+    */
+    
+  }),
+  
+  beforeCreate: require('waterlock').models.user.beforeCreate,
+  beforeUpdate: require('waterlock').models.user.beforeUpdate
+};

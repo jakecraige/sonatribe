@@ -26,8 +26,13 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
-  '*': [ 'passport' ]
+  '*': true,
+  PostController: {
+    open: true,
+    restricted: ['sessionAuth'],
+    jwt: ['hasJsonWebToken']
+  }
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
