@@ -4,7 +4,7 @@
 #
 # monoxide mono-devel package on Ubuntu 13.10
 
-FROM    mono-base
+FROM    ubuntu
 
 MAINTAINER Wayne Douglas <wayne@made-software.com>
 
