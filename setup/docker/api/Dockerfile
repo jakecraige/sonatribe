@@ -6,6 +6,8 @@
 MAINTAINER Wayne Douglas <wayne@made-software.com>
 FROM    base
 
-EXPOSE 4200
+EXPOSE 1337
+
+USER 	root
 
 CMD 	["/home/sonatribe/setup/docker/api/entrypoint.sh"]
