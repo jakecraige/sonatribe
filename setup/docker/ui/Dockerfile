@@ -9,5 +9,4 @@ FROM    base
 
 EXPOSE 4200
 
-USER 	root
 CMD 	["/home/sonatribe/setup/docker/ui/entrypoint.sh"]
