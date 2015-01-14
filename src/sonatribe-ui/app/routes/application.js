@@ -49,19 +49,6 @@ var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 							});
 						});
 					});
-
-				/*this.get('session')
-					.authenticate('authenticator:torii-st',
-					{
-						torii:    this.get('torii'),
-						provider: 'facebook-oauth2'
-					})
-					.then(function(){
-
-						console.log('authenticated')
-
-						console.log(rte.get('session'));
-					});*/
 			},
 
 	 		showLogin: function() {
