@@ -2,7 +2,6 @@
 #
 #VERSION 0.4
 #
-# monoxide mono-devel package on Ubuntu 13.10
 
 MAINTAINER Wayne Douglas <wayne@made-software.com>
 FROM    base
