@@ -1,7 +1,7 @@
 <div class="modal-body">
 
-  <a {{bind-attr href=facebook_login_url}}>facebook</a>
-  <button {{action "authenticate" "facebook-oauth2"}}>Facebook Oauth2</button>
+  <a {{action "authenticateFacebook" "facebook-oauth2"}}>facebook</a>
+  
   <a {{bind-attr href=twitter_login_url}}>twitter</a>
  <form id='login-form' method='post'>
       <div>

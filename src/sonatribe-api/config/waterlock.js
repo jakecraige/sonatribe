@@ -9,6 +9,8 @@
  */
 module.exports.waterlock = {
 
+  pluralizeEndpoints: true,
+
   // Base URL
   //
   // used by auth methods for callback URI's using oauth and for password
