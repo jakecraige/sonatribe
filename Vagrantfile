@@ -11,7 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network :private_network, ip: "192.168.1.103"
 
-  config.vm.synced_folder ".", "/vagrant", :nfs => { :mount_options => ["dmode=777","fmode=777"] }
+  config.vm.synced_folder ".", "/vagrant"
+  
+  #, :nfs => { :mount_options => ["dmode=777","fmode=777"] }
   ## forward web
 
   config.vm.network "forwarded_port", guest: 4200, host: 4200
@@ -20,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 1337, host: 1337
 
   ## forward API
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
+ 
   config.vm.network "forwarded_port", guest: 35729, host: 35729
 
 
