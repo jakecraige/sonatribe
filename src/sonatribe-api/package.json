@@ -26,7 +26,7 @@
     "sails-disk": "~0.10.0",
     "sails-generate-ember-blueprints": "0.0.2",
     "waterlock": "0.0.14",
-    "waterlock-facebook-auth": "0.0.3",
+    "waterlock-facebook-auth": "git+https://github.com/wayne-o/waterlock-facebook-auth.git",
     "waterlock-local-auth": "0.0.5"
   },
   "scripts": {
@@ -36,8 +36,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vagrant/sonatribe-api.git"
+    "url": "git://github.com/sonatribe/sonatribe.git"
   },
-  "author": "vagrant",
+  "author": "wayne-o",
   "license": ""
 }

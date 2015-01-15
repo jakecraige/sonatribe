@@ -32,6 +32,9 @@ module.exports = function(environment) {
       'facebook-oauth2': {
         apiKey:      '787578521258518',
         redirectUri: 'http://dev.festivaltribe.co.uk:4200'
+      },
+      'facebook-connect': {
+        appId:      '787578521258518'
       }
     }
   };

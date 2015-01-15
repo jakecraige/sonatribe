@@ -1,19 +1,7 @@
 import Ember from 'ember';
 import SonatribeRoute from 'sonatribe-ui/routes/sonatribe';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
-
-function fblogin() {
-	return new Ember.RSVP.Promise(function(resolve, reject){
-		FB.login(function(response){
-			if (response.authResponse) {
-				Ember.run(null, resolve, response.authResponse);
-			} else {
-				Ember.run(null, reject, response.status);
-			}
-		}, {scope: 'email'});
-	});
-}
-
+import User from 'sonatribe-ui/models/user';
 
 var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 	 actions: {
@@ -23,45 +11,33 @@ var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 				var rte = this;
 
 				this.get('session')
-					.authenticate('simple-auth-authenticator:torii', 'facebook-oauth2')
+					.authenticate('simple-auth-authenticator:torii', 'facebook-connect')
 					.then(function(){
 
-						console.log('authenticated')
+						var accessToken = rte.get('session').get('content').accessToken;
 
-						console.log(rte.get('session'));
+						Ember.$.ajax({
+							url: Sonatribe.SiteSettings.api_url + '/auths/facebook_access_token?code=' + accessToken,
+							dataType: 'json',
+							success: function(authResponse){
+								console.log(authResponse);
+								var user = rte.store.find('user', { id: authResponse.auth.user });
 
-						var _this = this;
+								if(user.get('username') == undefined){
 
-						//this is fugging nasty as we have to fire a login twice - once for torii
-						// and again for us to get the access_token
-						// definitely need to revisit this
-						fblogin().then(function(response){
-
-							Ember.$.ajax({
-								url: 'http://dev.festivaltribe.co.uk:1337/auths/facebook_access_token?code=' + response.accessToken,
-								dataType: 'json',
-								success: function(authResponse){
-									console.log(authResponse);
-								},
-								error: function(err){
-									console.log(err);
+									rte.send('autoLogin', 'createAccount', function(){
+										rte.controllerFor('createAccount').set('passwordRequired', false);
+										SonatribeRoute.showModal(rte, 'createAccount');
+									});
 								}
-							});
+							},
+							error: function(err){
+								console.log(err);
+							}
 						});
+
 					});
 
-				/*this.get('session')
-					.authenticate('authenticator:torii-st',
-					{
-						torii:    this.get('torii'),
-						provider: 'facebook-oauth2'
-					})
-					.then(function(){
-
-						console.log('authenticated')
-
-						console.log(rte.get('session'));
-					});*/
 			},
 
 	 		showLogin: function() {
@@ -86,6 +62,7 @@ var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 	      	var self = this;
 
 	      	self.send('autoLogin', 'createAccount', function(){
+						self.controllerFor('createAccount').set('passwordRequired', true);
 	        	SonatribeRoute.showModal(self, 'createAccount');
 	      	});
     	},

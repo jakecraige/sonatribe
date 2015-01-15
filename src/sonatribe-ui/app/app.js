@@ -15,8 +15,8 @@ loadInitializers(App, config.modulePrefix);
 
 window.Sonatribe = {};
 Sonatribe.SiteSettings = {
-  "api_url": 'http://dev.festivaltribe.co.uk:1337/',
-  "app_url": 'http://dev.festivaltribe.co.uk:4200/',
+  "api_url": 'http://dev.festivaltribe.co.uk:1337',
+  "app_url": 'http://dev.festivaltribe.co.uk:4200',
 
   "title": "Sonatribe",
   "logo_url": "http://alpha.sonatribe.com/img/logo_simple_small.jpg",

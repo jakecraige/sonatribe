@@ -1,6 +1,6 @@
 export var initialize = function(container, app) {
   	/*app.deferReadiness();
-    Sonatribe.Ajax.ajax('model/useraccount/')
+    Sonatribe.Ajax.ajax('model/user/')
         .then(function(result){
   			    var store = container.lookup('store:main');
             var user = store.createRecord('user', result.result);

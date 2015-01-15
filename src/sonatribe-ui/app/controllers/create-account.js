@@ -6,7 +6,7 @@ import Ajax from 'sonatribe-ui/mixins/sonatribe-ajax';
 import SonatribeController from 'sonatribe-ui/controllers/sonatribe';
 
 export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
-	needs: ['login'],
+	needs: ['login', 'createAccount'],
 	uniqueUsernameValidation: null,
 	globalNicknameExists: false,
 	complete: false,
@@ -32,8 +32,8 @@ export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
 		    	return;
 		   	}
 
-		   	var promise = this.ajax('register?username=wayne3&password=test', { 
-		   		type: 'POST', 
+		   	var promise = this.ajax('register?username=wayne3&password=test', {
+		   		type: 'POST',
 		   		data: {
 		   			username: username,
 		   			password: password,
@@ -52,13 +52,13 @@ export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
 				        // Failed to login
 				        self.flash('Login error', 'error');
 				        self.set('loggingIn', false);
-				    });	
+				    });
 		   	}, function() {
 		        // Failed to login
 		        self.flash('Login error', 'error');
 		        self.set('loggingIn', false);
-		    });	
-			
+		    });
+
 		    return false;
 	  	}
 	  }

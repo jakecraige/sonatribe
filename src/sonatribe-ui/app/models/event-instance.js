@@ -8,7 +8,7 @@ export default DS.Model.extend({
 	fromDate: DS.attr('string'),
 	toDate: DS.attr('string'),
 	locations: DS.hasMany('location', {async:true}),
-	usersAttending: DS.hasMany('userAccount', {async:true})
+	usersAttending: DS.hasMany('user', {async:true})
 	//images: DS.hasMany('image'),
 	//image: DS.belingsTo('image')
 });
