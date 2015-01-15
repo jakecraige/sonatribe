@@ -14,4 +14,4 @@
   nvm alias default 0.10.33
 
   # You can also install other stuff here
-  npm install -g bower ember-cli@0.1.5
+  npm install -g bower ember-cli
