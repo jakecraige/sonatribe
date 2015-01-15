@@ -2,8 +2,9 @@ import Ember from 'ember';
 import SonatribeRoute from 'sonatribe-ui/routes/sonatribe';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 import User from 'sonatribe-ui/models/user';
+import HasCurrentUser from 'sonatribe-ui/mixins/HasCurrentUser';
 
-var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
+var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, HasCurrentUser, {
 	 actions: {
 			// action to trigger authentication with Torii
 			authenticateFacebook: function(provider){
@@ -22,6 +23,8 @@ var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 							success: function(authResponse){
 								console.log(authResponse);
 								var user = rte.store.find('user', { id: authResponse.auth.user });
+
+								rte.set('currentUser', user);
 
 								if(user.get('username') == undefined){
 

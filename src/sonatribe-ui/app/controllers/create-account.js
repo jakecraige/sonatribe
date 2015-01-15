@@ -1,11 +1,12 @@
 import Ember from 'ember';
 import ModalFunctionality from 'sonatribe-ui/mixins/modal-functionality';
 import Presence from 'sonatribe-ui/mixins/presence';
-import Ajax from 'sonatribe-ui/mixins/sonatribe-ajax';
 
 import SonatribeController from 'sonatribe-ui/controllers/sonatribe';
+import HasCurrentUser from 'sonatribe-ui/mixins/HasCurrentUser';
 
-export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
+
+export default SonatribeController.extend(ModalFunctionality, Presence, HasCurrentUser, {
 	needs: ['login', 'createAccount'],
 	uniqueUsernameValidation: null,
 	globalNicknameExists: false,
@@ -27,37 +28,19 @@ export default SonatribeController.extend(ModalFunctionality, Presence, Ajax, {
 
 	  		var self = this;
 
-		    if(this.blank('accountName') || this.blank('accountEmail') || this.blank('accountPassword')){
+		    if(this.blank('accountName') || this.blank('accountEmail') || (this.get('passwordRequired') && this.blank('accountPassword'))){
 		    	self.flash('Name, username or password is blank', 'error');
 		    	return;
 		   	}
 
-		   	var promise = this.ajax('register?username=wayne3&password=test', {
-		   		type: 'POST',
-		   		data: {
-		   			username: username,
-		   			password: password,
-		   			email: email,
-		   			displayName: name
-		   		},
-		   		dataType: 'JSON'
-		   	});
+				var currentUser = this.get('currentUser');
+				var user = this.store.find('user', currentUser.get('id') );
 
-		   	promise.then(function(){
-		   		self.ajax('auth/credentials?username=' + username + '&password=' + password, {})
-			   		.then(function(){
-				   		self.set('loggedIn', true);
-				       	location.reload();
-				   	}, function() {
-				        // Failed to login
-				        self.flash('Login error', 'error');
-				        self.set('loggingIn', false);
-				    });
-		   	}, function() {
-		        // Failed to login
-		        self.flash('Login error', 'error');
-		        self.set('loggingIn', false);
-		    });
+				user.set('username', username);
+				user.set('email',email);
+				user.set('name',name);
+
+				user.save();
 
 		    return false;
 	  	}

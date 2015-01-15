@@ -8,9 +8,9 @@ import SonatribeController from 'sonatribe-ui/controllers/sonatribe';
 export default SonatribeController.extend(ModalFunctionality, HasCurrentUser, Presence, Ajax, {
 	needs: ['modal', 'application', 'createAccount'],
 	loggingIn: false,
-  	loggedIn: false,
-  	authenticate: null,
-  	showSpinner: function() {
+  loggedIn: false,
+  authenticate: null,
+  showSpinner: function() {
 	    return this.get('loggingIn') || this.get('authenticate');
 	}.property('loggingIn', 'authenticate'),
 	resetForm: function() {
@@ -35,7 +35,7 @@ export default SonatribeController.extend(ModalFunctionality, HasCurrentUser, Pr
 
 
 		   	var promise = this.ajax('auth/credentials?username=' + this.get('loginName') + '&password=' + this.get('loginPassword'), {});
-		   	
+
 		   	promise.then(function(){
 		   		self.set('loggedIn', true);
 		        // Trigger the browser's password manager using the hidden static login form:
@@ -44,7 +44,7 @@ export default SonatribeController.extend(ModalFunctionality, HasCurrentUser, Pr
 		        // Failed to login
 		        self.flash('Login error', 'error');
 		        self.set('loggingIn', false);
-		    });	
+		    });
 
 		    return false;
     	}
