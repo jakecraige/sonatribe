@@ -18,7 +18,7 @@ Once vagrant is up and running you can run `vagrant ssh` - this will get you int
 
 To get the API up and running you need to:
 
-`cd /vagrant/src/sonatribe-ui`
+`cd /vagrant/src/sonatribe-api`
 
 Then 
 
