@@ -35,8 +35,13 @@ var ApplicationRoute = SonatribeRoute.extend(ApplicationRouteMixin, {
 								console.log(err);
 							}
 						});
+<<<<<<< HEAD
 
 					});
+
+=======
+					});
+>>>>>>> 587e224f8fdde16f3bd99c53ed0e94974e304641
 			},
 
 	 		showLogin: function() {

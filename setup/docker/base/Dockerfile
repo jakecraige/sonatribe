@@ -9,4 +9,4 @@ FROM    ubuntu
 MAINTAINER Wayne Douglas <wayne@made-software.com>
 
 RUN 	  git clone https://wayne-o:William2014@bitbucket.org/sonatribe/sonatribe /home/sonatribe
-WORKDIR   /home/sonatribe/sonatribe-ui
+
